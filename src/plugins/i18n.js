@@ -16,7 +16,7 @@ const messages = {
       role1: 'Full Stack / Vue.js Expert',
       role2: 'Ciberseguridad',
       role3: 'Ingeniero Analista Informático',
-      summary: 'Ingeniero Analista Informático con más de 19 años de experiencia en gestión de proyectos, programación y desarrollo web. Especialista en Vue.js, React Native, ciberseguridad y buenas prácticas de desarrollo seguro.',
+      summary: 'Ingeniero Analista Informático con 20 años de experiencia en gestión de proyectos, programación y desarrollo web. Especialista en Vue.js, React Native, ciberseguridad y buenas prácticas de desarrollo seguro.',
       contactMe: 'Contactar',
       downloadCV: 'Descargar CV'
     },
@@ -37,7 +37,7 @@ const messages = {
       role1: 'Full Stack / Vue.js Expert',
       role2: 'Cybersecurity',
       role3: 'Informatics Analyst Engineer',
-      summary: 'Informatics Analyst Engineer with over 19 years of experience in project management, programming, and web development. Specialist in Vue.js, React Native, cybersecurity, and secure development best practices.',
+      summary: 'Informatics Analyst Engineer with 20 years of experience in project management, programming, and web development. Specialist in Vue.js, React Native, cybersecurity, and secure development best practices.',
       contactMe: 'Contact me',
       downloadCV: 'Download CV'
     },

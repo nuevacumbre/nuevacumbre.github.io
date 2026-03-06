@@ -31,7 +31,7 @@ const skillCategories = [
     name: "BACKEND",
     icon: "⚙️",
     skills: [
-      { name: "Node JS 18", level: 89, color: "green" },
+      { name: "Node JS 22", level: 89, color: "green" },
       { name: "Express JS", level: 88, color: "gray" },
       { name: "LAMP Stack", level: 95, color: "orange" },
       { name: "GraphQL", level: 75, color: "pink" },
@@ -269,7 +269,7 @@ const activeCategory = ref(skillCategories[0]);
           </div>
           <div class="flex items-center gap-2">
             <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">Node JS 18:</span>
+            <span class="text-gray-400">Node JS 22:</span>
             <span class="text-green-400">Avanzado</span>
           </div>
           <div class="flex items-center gap-2">

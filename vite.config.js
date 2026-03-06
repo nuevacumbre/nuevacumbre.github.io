@@ -13,6 +13,9 @@ export default defineConfig({
       }
     })
   ],
+  // Base dinámica: funciona en local y en GitHub Pages
+  //base: process.env.NODE_ENV === 'production' ? '/nuevacumbre/' : '/',   para alternar alojamiento local y en GitHub Pages
+  base: '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
