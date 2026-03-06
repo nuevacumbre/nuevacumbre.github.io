@@ -84,7 +84,7 @@ mindmap
 ```mermaid
 pie showData
     title Dominio Técnico
-    "React JS 18" : 90
+    "React JS 19" : 90
     "Vue.js 3" : 88
     "JavaScript/ES6" : 95
     "TypeScript" : 85
