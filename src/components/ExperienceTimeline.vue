@@ -7,10 +7,25 @@ const { t } = useI18n();
 // TU EXPERIENCIA REAL COMPLETA del CV (¡TODAS!)
 const experiences = [
   {
+    id: 0,
+    company: 'Bootcamp Talento Digital - Chile',
+    role: 'Facilitador en Desarrollo Front-End (PF1161)',
+    period: '2025 - 2026',
+    location: 'Chile (Online)',
+    description: 'Facilitador en bootcamp de 438 horas para el programa Talento Digital, especializado en desarrollo Front-End con Vue.js. Responsable de impartir 9 módulos formativos a estudiantes adultos en modalidad online.',
+    achievements: [
+      'Facilité 438 horas de formación en desarrollo Front-End a cohorte de estudiantes adultos',
+      'Impartí módulos de HTML, CSS, JavaScript, Vue.js, consumo de APIs y testing',
+      'Guié a estudiantes en la creación de portafolios de productos digitales',
+      'Preparé a estudiantes para la empleabilidad en la industria digital'
+    ],
+    technologies: ['Vue 3', 'JavaScript ES6+', 'HTML5/CSS3', 'Axios', 'Vue Router', 'Vuex', 'Firebase', 'Git/GitHub', 'Jest/Cypress']
+  },
+  {
     id: 1,
     company: "Instituto Profesional Icap (FUCAP)",
     role: "Docente Académico en Ciberseguridad",
-    period: "2024 - Presente",
+    period: "2024 - 2025",
     location: "Valparaíso, Chile",
     description:
       "Docente en Ciberseguridad Experto con REUF de SENSE. Materias: Formación básica, Transformación Digital, Gestión de la Ciberseguridad, Seguridad del Software y Hardware, Redes, Hacking Ético, Malware, Análisis Forense.",
@@ -181,6 +196,21 @@ const certifications = [
   "Maestría en Programación de Bases de Datos SQL 2005",
 ];
 
+const modules = [
+  { name: 'Orientación al Perfil y Metodología del Curso', hours: 18, date: '04-11-2025 al 07-11-2025' },
+  { name: 'Fundamentos de Desarrollo Front-End', hours: 72, date: '07-11-2025 al 27-11-2025' },
+  { name: 'Desarrollo de la Interfaz de Usuario Web', hours: 56, date: '28-11-2025 al 16-12-2025' },
+  { name: 'Fundamentos de Programación en JavaScript', hours: 60, date: '16-12-2025 al 09-01-2026' },
+  { name: 'Programación Avanzada en JavaScript (V2)', hours: 48, date: '09-01-2026 al 22-01-2026' },
+  { name: 'Desarrollo de Interfaces Interactivas con Framework Vue', hours: 72, date: '22-01-2026 al 12-02-2026' },
+  { name: 'Desarrollo de Aplicaciones Front-End con Framework Vue', hours: 76, date: '12-02-2026 al 05-03-2026' },
+  { name: 'Desarrollo de Portafolio de un Producto Digital', hours: 18, date: '05-03-2026 al 10-03-2026' },
+  { name: 'Desarrollo de Empleabilidad en la Industria Digital', hours: 18, date: '11-03-2026 al 16-03-2026' }
+]
+
+// Calcular total de horas de docencia (438 del bootcamp + 3500 de experiencia previa)
+const totalHorasDocencia = 438 + 3500
+
 const selectedExp = ref(experiences[0]);
 </script>
 
@@ -191,7 +221,7 @@ const selectedExp = ref(experiences[0]);
       <div
         class="absolute top-0 left-0 w-full h-full"
         style="
-          background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L60 60 M60 0 L0 60' stroke='%2300ffff' stroke-width='0.5'/%3E%3C/svg%3E&quot;);
+          background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0 L60 60 M60 0 L0 60\' stroke=\'%2300ffff\' stroke-width=\'0.5\'/%3E%3C/svg%3E');
         "
       ></div>
     </div>
@@ -207,16 +237,16 @@ const selectedExp = ref(experiences[0]);
           </span>
         </h2>
         <p class="text-gray-400 max-w-2xl mx-auto font-mono">
-          > 19+ AÑOS DE EXPERIENCIA EN DESARROLLO, SEGURIDAD Y DOCENCIA_
+          > 20+ AÑOS DE EXPERIENCIA EN DESARROLLO, SEGURIDAD Y DOCENCIA_
         </p>
       </div>
 
-      <!-- Stats rápidas -->
+      <!-- Stats rápidas - AHORA CON HORAS DE DOCENCIA INCLUIDAS -->
       <div
-        class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto"
+        class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12 max-w-5xl mx-auto"
       >
         <div class="text-center p-4 cyber-card bg-black/40">
-          <span class="block text-3xl font-bold text-cyan-400">19+</span>
+          <span class="block text-3xl font-bold text-cyan-400">20+</span>
           <span class="text-xs text-gray-400">Años Experiencia</span>
         </div>
         <div class="text-center p-4 cyber-card bg-black/40">
@@ -228,8 +258,13 @@ const selectedExp = ref(experiences[0]);
           <span class="text-xs text-gray-400">Proyectos</span>
         </div>
         <div class="text-center p-4 cyber-card bg-black/40">
-          <span class="block text-3xl font-bold text-green-400">8</span>
+          <span class="block text-3xl font-bold text-green-400">8+</span>
           <span class="text-xs text-gray-400">Certificaciones</span>
+        </div>
+        <!-- NUEVA TARJETA: Horas de docencia -->
+        <div class="text-center p-4 cyber-card bg-black/40">
+          <span class="block text-3xl font-bold text-amber-400">{{ totalHorasDocencia }}</span>
+          <span class="text-xs text-gray-400">Horas Docencia</span>
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import GitHubProjectsCarousel from './GitHubProjectsCarousel.vue'
 
 const { t } = useI18n()
 
-// TODOS TUS PROYECTOS (10+)
+// PROYECTOS CON MÚLTIPLES ENLACES (Opción 2)
 const projects = [
   {
     id: 1,
@@ -22,7 +22,10 @@ const projects = [
     company: 'CISO Global Inc',
     year: '2022-2023',
     github: 'https://github.com/nuevacumbre/simplehealth',
-    demo: 'https://simplehealth.cl',
+    links: [
+      { type: 'instagram', url: 'https://www.instagram.com/simplehealth.cl/', label: 'Instagram', icon: '📸' },
+      { type: 'web', url: 'https://simplehealth.cl', label: 'Sitio Web', icon: '🌐' }
+    ],
     stats: { stars: 45, forks: 12 }
   },
   {
@@ -40,7 +43,9 @@ const projects = [
     company: 'CISO Global Inc',
     year: '2022',
     github: 'https://github.com/nuevacumbre/grupo-medical',
-    demo: 'https://grupomedical.cl',
+    links: [
+      { type: 'web', url: 'https://grupomedical.cl', label: 'Sitio Web', icon: '🌐' }
+    ],
     stats: { stars: 38, forks: 9 }
   },
   {
@@ -58,7 +63,9 @@ const projects = [
     company: 'CISO Global Inc',
     year: '2021-2022',
     github: 'https://github.com/nuevacumbre/pescorental',
-    demo: 'https://pescorental.com',
+    links: [
+      { type: 'web', url: 'https://pescorental.cl', label: 'Sitio Web', icon: '🌐' }
+    ],
     stats: { stars: 27, forks: 8 }
   },
   {
@@ -76,6 +83,7 @@ const projects = [
     company: 'SEREMI Salud',
     year: '2021',
     github: 'https://github.com/nuevacumbre/seremi-alertas',
+    links: [], // Sin enlaces adicionales
     stats: { stars: 19, forks: 4 }
   },
   {
@@ -93,6 +101,9 @@ const projects = [
     company: 'Redsalud Clínica Iquique',
     year: '2017-2021',
     github: 'https://github.com/nuevacumbre/redsalud',
+    links: [
+      { type: 'web', url: 'https://redsalud.cl', label: 'Sitio Web', icon: '🌐' }
+    ],
     stats: { stars: 15, forks: 3 }
   },
   {
@@ -110,6 +121,9 @@ const projects = [
     company: 'I. Municipalidad El Quisco',
     year: '2011-2012',
     github: 'https://github.com/nuevacumbre/elquisco',
+    links: [
+      { type: 'web', url: 'https://elquisco.cl', label: 'Sitio Web', icon: '🌐' }
+    ],
     stats: { stars: 12, forks: 2 }
   },
   {
@@ -127,6 +141,7 @@ const projects = [
     company: 'IGE S.A.',
     year: '2008-2011',
     github: 'https://github.com/nuevacumbre/ige',
+    links: [ { type: 'web', url: 'https://ige.cl', label: 'Sitio Web', icon: '🌐' }], // Sin enlaces adicionales
     stats: { stars: 8, forks: 1 }
   },
   {
@@ -144,6 +159,7 @@ const projects = [
     company: 'Terra Network Chile',
     year: '2007-2008',
     github: 'https://github.com/nuevacumbre/terra',
+    links: [], // Sin enlaces adicionales
     stats: { stars: 5, forks: 0 }
   }
 ]
@@ -176,11 +192,11 @@ const openProjectModal = (project) => {
       <div class="text-center mb-12">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
           <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            PROYECTOS DESTACADOS
+            {{ t('projects.title') }}
           </span>
         </h2>
         <p class="text-gray-400 max-w-2xl mx-auto font-mono">
-          > +100 PROYECTOS ENTREGADOS • CASOS DE ÉXITO_
+          > {{ t('projects.subtitle') }}
         </p>
       </div>
 
@@ -190,7 +206,7 @@ const openProjectModal = (project) => {
                 @click="activeCategory = cat"
                 class="px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 cyber-card"
                 :class="activeCategory === cat ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500' : 'bg-black/40 text-gray-400 border-gray-700'">
-          {{ cat === 'todos' ? 'TODOS' : cat.toUpperCase() }}
+          {{ cat === 'todos' ? t('projects.all') : cat.toUpperCase() }}
         </button>
       </div>
 
@@ -200,6 +216,14 @@ const openProjectModal = (project) => {
              @click="openProjectModal(project)"
              class="group relative cyber-card bg-black/40 p-5 cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:shadow-neon-cyan">
           
+          <!-- Tags de seguridad (si existen) -->
+          <div v-if="project.security" class="absolute top-2 right-2 z-10 flex gap-1">
+            <span v-for="sec in project.security.slice(0,2)" :key="sec"
+                  class="px-1 py-0.5 text-[10px] bg-green-500/20 text-green-300 border border-green-500/30 rounded">
+              🔒 {{ sec }}
+            </span>
+          </div>
+
           <!-- Imagen placeholder -->
           <div class="relative h-48 overflow-hidden rounded-lg mb-4 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
             <span class="text-4xl opacity-30">{{ project.title.charAt(0) }}</span>
@@ -238,7 +262,7 @@ const openProjectModal = (project) => {
       <!-- CARRUSEL DE GITHUB -->
       <GitHubProjectsCarousel />
 
-      <!-- Modal de proyecto -->
+      <!-- Modal de proyecto con MÚLTIPLES ENLACES -->
       <div v-if="selectedProject" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto"
            @click.self="selectedProject = null">
         <div class="cyber-card bg-gray-900 max-w-3xl w-full p-6">
@@ -248,19 +272,19 @@ const openProjectModal = (project) => {
           <!-- MÉTODO STAR -->
           <div class="space-y-4 mb-4">
             <div>
-              <h4 class="text-cyan-400 font-mono text-sm mb-1">// SITUACIÓN</h4>
+              <h4 class="text-cyan-400 font-mono text-sm mb-1">// {{ t('projects.situation') }}</h4>
               <p class="text-gray-300 text-sm">{{ selectedProject.situation }}</p>
             </div>
             <div>
-              <h4 class="text-cyan-400 font-mono text-sm mb-1">// TAREA</h4>
+              <h4 class="text-cyan-400 font-mono text-sm mb-1">// {{ t('projects.task') }}</h4>
               <p class="text-gray-300 text-sm">{{ selectedProject.task }}</p>
             </div>
             <div>
-              <h4 class="text-cyan-400 font-mono text-sm mb-1">// ACCIÓN</h4>
+              <h4 class="text-cyan-400 font-mono text-sm mb-1">// {{ t('projects.action') }}</h4>
               <p class="text-gray-300 text-sm">{{ selectedProject.action }}</p>
             </div>
             <div>
-              <h4 class="text-cyan-400 font-mono text-sm mb-1">// RESULTADO</h4>
+              <h4 class="text-cyan-400 font-mono text-sm mb-1">// {{ t('projects.result') }}</h4>
               <p class="text-green-400 text-sm">{{ selectedProject.result }}</p>
             </div>
           </div>
@@ -273,18 +297,36 @@ const openProjectModal = (project) => {
             </span>
           </div>
 
-          <div class="flex gap-3">
+          <!-- Medidas de seguridad (si existen) -->
+          <div v-if="selectedProject.security" class="mb-4">
+            <h4 class="text-cyan-400 font-mono text-sm mb-2">// {{ t('projects.security') }}</h4>
+            <div class="flex flex-wrap gap-2">
+              <span v-for="sec in selectedProject.security" :key="sec"
+                    class="px-2 py-1 text-xs bg-green-500/10 text-green-300 border border-green-500/30 rounded">
+                🔒 {{ sec }}
+              </span>
+            </div>
+          </div>
+
+          <!-- BOTONES CON MÚLTIPLES ENLACES -->
+          <div class="flex flex-wrap gap-3">
+            <!-- GitHub siempre presente -->
             <a :href="selectedProject.github" target="_blank" 
-               class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition">
-              GitHub
+               class="flex-1 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition text-center">
+              {{ t('projects.github') }}
             </a>
-            <a v-if="selectedProject.demo" :href="selectedProject.demo" target="_blank"
-               class="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-500 transition">
-              Demo
+            
+            <!-- Enlaces adicionales (Instagram, web, etc.) -->
+            <a v-for="link in selectedProject.links" :key="link.type" 
+               :href="link.url" target="_blank"
+               class="flex-1 px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-500 transition text-center">
+              {{ link.icon }} {{ link.label }}
             </a>
+            
+            <!-- Botón cerrar -->
             <button @click="selectedProject = null"
                     class="px-4 py-2 border border-gray-600 text-gray-400 rounded hover:text-white transition">
-              Cerrar
+              {{ t('projects.close') }}
             </button>
           </div>
         </div>

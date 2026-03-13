@@ -56,7 +56,7 @@ mindmap
       Analista Programador Computacional
       Certificaciones IC3, CEH
     💼 Experiencia
-      19+ años en TI
+      20+ años en TI
       Docente Ciberseguridad
       Consultor DevOps
       IT Manager
@@ -72,7 +72,7 @@ mindmap
       Docker / AWS
 ```
 
-**Ingeniero Analista Informático** con más de **19 años de experiencia** en gestión de proyectos, programación y desarrollo web. Especialista en posicionamiento SEO, administración DBA y programación de bases de datos. Relator de ciberseguridad y Docente Universitario certificado en IC3.
+**Ingeniero Analista Informático** con **20 años de experiencia** en gestión de proyectos, programación y desarrollo web. Especialista en posicionamiento SEO, administración DBA y programación de bases de datos. Relator de ciberseguridad y Docente Universitario certificado en IC3.
 
 > *"Evolucionar en el ámbito del desarrollo de software, la robótica o la domótica, mediante la adquisición continua de conocimientos y adoptar nuevos desafíos."*
 

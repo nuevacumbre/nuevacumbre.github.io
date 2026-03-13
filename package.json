@@ -13,7 +13,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
     "format": "prettier --write src/",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy:root": "gh-pages -d dist --repo https://github.com/nuevacumbre/nuevacumbre.github.io.git"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

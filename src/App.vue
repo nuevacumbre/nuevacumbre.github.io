@@ -144,13 +144,30 @@ onMounted(() => {
     </nav>
 
     <main class="pt-28 md:pt-20">
-      <section id="inicio"><HeroVapor /></section>
-      <section id="experiencia"><ExperienceTimeline /></section>
-      <section id="habilidades"><SkillsNeon /></section>
-      <section id="proyectos"><ProjectsGrid /></section>
-      <section id="contacto"><ContactForm /></section>
-    </main>
+  <section id="inicio" class="scroll-mt-24 md:scroll-mt-20">
+    <HeroVapor />
+  </section>
+  <section id="experiencia" class="scroll-mt-24 md:scroll-mt-20">
+    <ExperienceTimeline />
+  </section>
+  <section id="habilidades" class="scroll-mt-24 md:scroll-mt-20">
+    <SkillsNeon />
+  </section>
+  <section id="proyectos" class="scroll-mt-24 md:scroll-mt-20">
+    <ProjectsGrid />
+  </section>
+  <section id="contacto" class="scroll-mt-24 md:scroll-mt-20">
+    <ContactForm />
+  </section>
+</main>
   </div>
+
+  <footer class="py-8 text-center text-gray-500 dark:text-gray-400 border-t border-white/10 dark:border-white/5 glass-vapor">
+  <div class="container mx-auto px-6">
+    <p class="font-mono text-sm mb-2">© 2026 Christopher Espinoza • {{ $t('footer.rights') }}</p>
+    <p class="text-xs text-cyan-600/50">{{ $t('footer.status') }}</p>
+  </div>
+</footer>
 </template>
 
 <style scoped>

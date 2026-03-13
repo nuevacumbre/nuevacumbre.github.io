@@ -1,78 +1,96 @@
 ﻿<script setup>
 import { ref } from "vue";
 
-// TU STACK TECNOLÓGICO COMPLETO del CV
+// TU STACK TECNOLÓGICO COMPLETO y ACTUALIZADO del CV
 const skillCategories = [
   {
-    name: "LENGUAJES",
-    icon: "💻",
+    name: 'LENGUAJES',
+    icon: '💻',
     skills: [
-      { name: "Python", level: 88, color: "yellow" },
-      { name: "JavaScript/ES6", level: 95, color: "yellow" },
-      { name: "PHP", level: 90, color: "purple" },
-      { name: "SQL", level: 92, color: "blue" },
-      { name: "PL/SQL", level: 85, color: "orange" },
-      { name: "TypeScript", level: 85, color: "blue" },
-    ],
+      { name: 'Python', level: 88 },
+      { name: 'JavaScript/ES6', level: 95 },
+      { name: 'PHP', level: 90 },
+      { name: 'SQL', level: 92 },
+      { name: 'PL/SQL', level: 85 },
+      { name: 'TypeScript', level: 85 }
+    ]
   },
   {
-    name: "FRONTEND",
-    icon: "🎨",
+    name: 'FRONTEND',
+    icon: '🎨',
     skills: [
-      { name: "React JS 18", level: 90, color: "cyan" },
-      { name: "React Native", level: 88, color: "cyan" },
-      { name: "Vue 3", level: 85, color: "green" },
-      { name: "Angular", level: 80, color: "red" },
-      { name: "Material UI", level: 85, color: "blue" },
-      { name: "TailwindCSS", level: 90, color: "cyan" },
-    ],
+      { name: 'React JS 18', level: 90 },
+      { name: 'React Native', level: 88 },
+      { name: 'Vue 3', level: 95 },
+      { name: 'Angular', level: 92 },
+      { name: 'Material UI', level: 85 },
+      { name: 'TailwindCSS', level: 90 },
+      { name: 'Quasar Framework', level: 95 },
+      { name: 'Vuetify', level: 98 },
+      { name: 'Element Plus', level: 90 },
+      { name: 'PrimeVue', level: 88 },
+      { name: 'ionic Framework', level: 85 },
+      { name: 'Bootstrap', level: 88 },
+      { name: 'DaisyUI', level: 80 },
+      { name: 'SASS/SCSS', level: 87 },
+      { name: 'HTML5/CSS3', level: 95 },
+      { name: 'Web Accessibility (WCAG)', level: 80 },
+      { name: 'Responsive Design', level: 92 }
+    ]
   },
   {
-    name: "BACKEND",
-    icon: "⚙️",
+    name: 'BACKEND',
+    icon: '⚙️',
     skills: [
-      { name: "Node JS 22", level: 89, color: "green" },
-      { name: "Express JS", level: 88, color: "gray" },
-      { name: "LAMP Stack", level: 95, color: "orange" },
-      { name: "GraphQL", level: 75, color: "pink" },
-      { name: "REST APIs", level: 92, color: "blue" },
-    ],
+      { name: 'Node JS 22', level: 89 },
+      { name: 'Express JS', level: 88 },
+      { name: 'LAMP Stack', level: 95 },
+      { name: 'GraphQL', level: 75 },
+      { name: 'REST APIs', level: 92 },
+      { name: 'OAuth 2.0', level: 90 },
+      { name: 'Websocket', level: 80 },
+      { name: 'Protocolos TCP/IP / UDP', level: 88 },
+      { name: 'MQTT/AMQP/RabbitMQ/Coap/Kafka', level: 80 },
+      { name: 'Microservicios', level: 85 },
+      { name: 'Serverless (AWS Lambda)', level: 78 }
+    ]
   },
   {
-    name: "BASES DE DATOS",
-    icon: "🗄️",
+    name: 'BASES DE DATOS',
+    icon: '🗄️',
     skills: [
-      { name: "MySQL HeatWave", level: 92, color: "blue" },
-      { name: "PostgreSQL", level: 88, color: "cyan" },
-      { name: "Oracle DB", level: 85, color: "red" },
-      { name: "SQL Server", level: 87, color: "orange" },
-      { name: "MongoDB", level: 80, color: "green" },
-    ],
+      { name: 'MySQL HeatWave', level: 99 },
+      { name: 'PostgreSQL', level: 88 },
+      { name: 'Oracle DB', level: 85 },
+      { name: 'SQL Server', level: 87 },
+      { name: 'MongoDB', level: 80 },
+      { name: 'Firebase Realtime Database', level: 92 }
+    ]
   },
   {
-    name: "CIBERSEGURIDAD",
-    icon: "🛡️",
+    name: 'CIBERSEGURIDAD',
+    icon: '🛡️',
     skills: [
-      { name: "Ethical Hacking (CEH)", level: 87, color: "red" },
-      { name: "Análisis Forense", level: 85, color: "purple" },
-      { name: "Gestión de Incidentes", level: 88, color: "orange" },
-      { name: "OWASP", level: 82, color: "yellow" },
-      { name: "Nessus", level: 80, color: "green" },
-      { name: "Wireshark", level: 83, color: "blue" },
-    ],
+      { name: 'Ethical Hacking (CEH)', level: 87 },
+      { name: 'Análisis Forense', level: 85 },
+      { name: 'Gestión de Incidentes', level: 88 },
+      { name: 'OWASP', level: 82 },
+      { name: 'Nessus', level: 80 },
+      { name: 'Wireshark', level: 83 }
+    ]
   },
   {
-    name: "DEVOPS & TOOLS",
-    icon: "🔧",
+    name: 'DEVOPS & TOOLS',
+    icon: '🔧',
     skills: [
-      { name: "Docker", level: 80, color: "blue" },
-      { name: "Git/GitHub", level: 92, color: "gray" },
-      { name: "CI/CD", level: 85, color: "green" },
-      { name: "AWS", level: 78, color: "orange" },
-      { name: "Linux/Ubuntu", level: 88, color: "yellow" },
-      { name: "VMware", level: 82, color: "red" },
-    ],
-  },
+      { name: 'Docker', level: 80 },
+      { name: 'Git/GitHub', level: 92 },
+      { name: 'CI/CD', level: 85 },
+      { name: 'AWS', level: 78 },
+      { name: 'Linux/Ubuntu', level: 88 },
+      { name: 'VMware', level: 82 }
+    ]
+  }
 ];
 
 const certifications = [
@@ -116,6 +134,39 @@ const softSkills = [
   "Gestión del Tiempo",
   "Resolución de Problemas",
   "Gestión de Proyectos (SCRUM/KANBAN)",
+];
+
+// STACK DETALLADO - AHORA CON LO MEJOR DE TUS TECNOLOGÍAS
+const detailedStack = [
+  // Frontend (lo más destacado)
+  { name: 'Vue 3 / Vuetify / Quasar', level: 'Avanzado', color: 'green' },
+  { name: 'React 18 / React Native', level: 'Avanzado', color: 'green' },
+  { name: 'Angular / Material UI', level: 'Avanzado', color: 'green' },
+  { name: 'TailwindCSS / DaisyUI', level: 'Avanzado', color: 'green' },
+  { name: 'TypeScript / JavaScript ES6', level: 'Avanzado', color: 'green' },
+  
+  // Backend (lo mejor)
+  { name: 'Node.js 22 / Express', level: 'Avanzado', color: 'green' },
+  { name: 'LAMP Stack (PHP/MySQL)', level: 'Avanzado', color: 'green' },
+  { name: 'REST APIs / GraphQL', level: 'Avanzado', color: 'green' },
+  { name: 'OAuth 2.0 / JWT', level: 'Avanzado', color: 'green' },
+  { name: 'Websockets / MQTT', level: 'Intermedio', color: 'yellow' },
+  
+  // Bases de datos
+  { name: 'MySQL HeatWave', level: 'Avanzado', color: 'green' },
+  { name: 'PostgreSQL / SQL Server', level: 'Avanzado', color: 'green' },
+  { name: 'Oracle DB / PL/SQL', level: 'Avanzado', color: 'green' },
+  { name: 'MongoDB / Firebase', level: 'Avanzado', color: 'green' },
+  
+  // Ciberseguridad
+  { name: 'Ethical Hacking (CEH)', level: 'Avanzado', color: 'green' },
+  { name: 'Análisis Forense / OWASP', level: 'Avanzado', color: 'green' },
+  { name: 'Wireshark / Nessus', level: 'Avanzado', color: 'green' },
+  
+  // DevOps y herramientas
+  { name: 'Docker / AWS', level: 'Intermedio', color: 'yellow' },
+  { name: 'Git/GitHub / CI/CD', level: 'Avanzado', color: 'green' },
+  { name: 'Linux/Ubuntu / VMware', level: 'Avanzado', color: 'green' }
 ];
 
 const activeCategory = ref(skillCategories[0]);
@@ -167,7 +218,7 @@ const activeCategory = ref(skillCategories[0]);
         </button>
       </div>
 
-      <!-- Skills grid -->
+      <!-- Skills grid con niveles (Básico/Intermedio/Avanzado) -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
         <div
           v-for="skill in activeCategory.skills"
@@ -175,18 +226,19 @@ const activeCategory = ref(skillCategories[0]);
           class="cyber-card bg-black/40 p-4 group hover:shadow-neon-cyan transition-all duration-300"
         >
           <div class="flex justify-between items-center mb-2">
-            <span class="font-mono text-sm text-gray-300">{{
-              skill.name
-            }}</span>
-            <span class="text-xs font-mono text-cyan-400"
-              >{{ skill.level }}%</span
-            >
+            <span class="font-mono text-sm text-gray-300">{{ skill.name }}</span>
+            <span class="text-xs font-mono px-2 py-0.5 rounded-full" 
+                  :class="{
+                    'bg-green-500/20 text-green-400 border border-green-500/30': skill.level >= 80,
+                    'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30': skill.level >= 50 && skill.level < 80,
+                    'bg-red-500/20 text-red-400 border border-red-500/30': skill.level < 50
+                  }">
+              {{ skill.level >= 80 ? $t('skills.levels.advanced') : skill.level >= 50 ? $t('skills.levels.intermediate') : $t('skills.levels.basic') }}
+            </span>
           </div>
           <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-            <div
-              class="h-full rounded-full transition-all duration-1000 ease-out bg-cyan-500"
-              :style="{ width: skill.level + '%' }"
-            ></div>
+            <div class="h-full rounded-full transition-all duration-1000 ease-out bg-cyan-500" 
+                 :style="{ width: skill.level + '%' }"></div>
           </div>
         </div>
       </div>
@@ -256,56 +308,16 @@ const activeCategory = ref(skillCategories[0]);
         </div>
       </div>
 
-      <!-- Stack detallado -->
+      <!-- STACK DETALLADO - AHORA CON LO MEJOR DE TUS TECNOLOGÍAS -->
       <div class="cyber-card bg-black/40 p-6">
         <h3 class="text-xl font-bold text-cyan-400 mb-4 font-mono">
-          // STACK DETALLADO
+          // STACK DETALLADO (Tecnologías Destacadas)
         </h3>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-          <div class="flex items-center gap-2">
+          <div v-for="item in detailedStack" :key="item.name" class="flex items-center gap-2">
             <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">React JS 18:</span>
-            <span class="text-green-400">Avanzado</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">Node JS 22:</span>
-            <span class="text-green-400">Avanzado</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">Bases No Relacionales:</span>
-            <span class="text-green-400">Avanzado</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">MUI Core 5.6.0+:</span>
-            <span class="text-yellow-400">Intermedio</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">GraphQL:</span>
-            <span class="text-yellow-400">Intermedio</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">Oauth 2.0:</span>
-            <span class="text-green-400">Avanzado</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">Docker:</span>
-            <span class="text-yellow-400">Intermedio</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">Websocket:</span>
-            <span class="text-yellow-400">Intermedio</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-cyan-500">▹</span>
-            <span class="text-gray-400">Protocolos TCP/IP:</span>
-            <span class="text-green-400">Avanzado</span>
+            <span class="text-gray-400">{{ item.name }}:</span>
+            <span :class="`text-${item.color}-400`">{{ item.level }}</span>
           </div>
         </div>
       </div>

@@ -45,15 +45,15 @@ const downloadCV = () => {
           <span class="ml-2 w-2 h-5 bg-cyan-400 animate-pulse"></span>
         </p>
         
-        <h1 class="text-5xl md:text-7xl font-extrabold">
-          <span class="bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-neon-pulse">
+        <h1 class="text-5xl md:text-7xl tracking-tight text-gray-900 dark:text-gray-100">
+          <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-600 bg-clip-text text-transparent animate-neon-pulse">
             {{ t('hero.name') }}
           </span>
         </h1>
 
         <div class="h-16">
           <h2 class="text-2xl md:text-3xl font-bold text-gray-700 dark:text-gray-300 font-mono">
-            &lt;Full Stack / Vue.js Expert / Ciberseguridad&gt;
+            &lt;Full Stack / VUE 3 & Vue.js Expert / Ciberseguridad / REUF-SENCE&gt;
           </h2>
         </div>
 
@@ -109,7 +109,7 @@ const downloadCV = () => {
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-      <span class="text-xs font-mono text-cyan-400 mb-2">SCROLL DOWN</span>
+      <span class="text-xs font-mono text-cyan-400 mb-2">{{ $t('hero.scrollDown') }}</span>
       <div class="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center">
         <div class="w-1 h-2 bg-cyan-400 rounded-full mt-2 animate-bounce"></div>
       </div>
